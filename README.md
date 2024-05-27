@@ -63,9 +63,9 @@ def apply_triple_barrier_atr(df, atr, atr_multiplier, holding_period):
 
 Executar a Análise:
 
-'''window = 14  # Período do ATR
+```window = 14  # Período do ATR
 atr_multiplier = 1.5  # Multiplicador do ATR para definir as barreiras
-holding_period = 10  # Período de retenção'''
+holding_period = 10  # Período de retenção```
 
 # Calcular o ATR e aplicar a função ao DataFrame
 df['ATR'] = calculate_atr(df, window)
