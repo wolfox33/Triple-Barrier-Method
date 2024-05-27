@@ -60,7 +60,7 @@ def apply_triple_barrier_atr(df, atr, atr_multiplier, holding_period):
         signals.append(signal)
     
     return signals
-    
+
 Executar a Análise:
 
 window = 14  # Período do ATR
