@@ -15,11 +15,11 @@ def apply_triple_barrier_atr(df, atr, atr_multiplier, holding_period):
     signals = []
     for idx in range(len(df)):
         start_price = df['close'].iloc[idx]
-        profit_barrier = atr_multiplier * atr[idx]/start_price
-        loss_barrier = -atr_multiplier * atr[idx]/start_price
+        profit_barrier = atr_multiplier * atr[idx] / start_price
+        loss_barrier = -atr_multiplier * atr[idx] / start_price
         
         signal = 0
-        for i in range(0, holding_period + 1):
+        for i in range(1, holding_period + 1):
             if idx + i >= len(df):
                 break
             current_price = df['close'].iloc[idx + i]
