@@ -25,6 +25,7 @@ Carregar os dados OHLC:
 Calcular o ATR:
 
 
+```
 def calculate_atr(df, window):
     high_low = df['High'] - df['Low']
     high_close = np.abs(df['High'] - df['Close'].shift())
@@ -35,7 +36,7 @@ def calculate_atr(df, window):
 
 Aplicar o Método Triple Barrier com ATR:
 
-
+```
 def apply_triple_barrier_atr(df, atr, atr_multiplier, holding_period):
     signals = []
     for idx in range(len(df)):
@@ -65,10 +66,10 @@ Executar a Análise:
 
 ```window = 14  # Período do ATR
 atr_multiplier = 1.5  # Multiplicador do ATR para definir as barreiras
-holding_period = 10  # Período de retenção```
+holding_period = 10  # Período de retenção
 
 # Calcular o ATR e aplicar a função ao DataFrame
-df['ATR'] = calculate_atr(df, window)
+```df['ATR'] = calculate_atr(df, window)
 df['signal'] = apply_triple_barrier_atr(df, df['ATR'], atr_multiplier, holding_period)
 
 
