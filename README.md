@@ -12,29 +12,19 @@ Funcionalidades
 Cálculo do ATR: Calcula o Average True Range (ATR) para um determinado período.
 Definição de Barreiras: Define barreiras dinâmicas de lucro e perda com base no ATR.
 Geração de Sinais: Gera sinais de compra e venda utilizando o método Triple Barrier.
+
 Uso
 Pré-requisitos
 Python 3.x
 Pandas
 Numpy
-Instalação
-Clone o repositório e instale as dependências necessárias:
 
-sh
-Copiar código
-git clone https://github.com/seu-usuario/triple-barrier-atr.git
-cd triple-barrier-atr
-pip install pandas numpy
-Executando o Código
 Carregar os dados OHLC:
 
-python
-Copiar código
-df = pd.read_csv('seu_arquivo_ohlc.csv', index_col='Date', parse_dates=True)
+
 Calcular o ATR:
 
-python
-Copiar código
+
 def calculate_atr(df, window):
     high_low = df['High'] - df['Low']
     high_close = np.abs(df['High'] - df['Close'].shift())
@@ -44,8 +34,7 @@ def calculate_atr(df, window):
     return atr
 Aplicar o Método Triple Barrier com ATR:
 
-python
-Copiar código
+
 def apply_triple_barrier_atr(df, atr, atr_multiplier, holding_period):
     signals = []
     for idx in range(len(df)):
@@ -72,8 +61,6 @@ def apply_triple_barrier_atr(df, atr, atr_multiplier, holding_period):
     return signals
 Executar a Análise:
 
-python
-Copiar código
 window = 14  # Período do ATR
 atr_multiplier = 1.5  # Multiplicador do ATR para definir as barreiras
 holding_period = 10  # Período de retenção
@@ -82,7 +69,6 @@ holding_period = 10  # Período de retenção
 df['ATR'] = calculate_atr(df, window)
 df['signal'] = apply_triple_barrier_atr(df, df['ATR'], atr_multiplier, holding_period)
 
-# Analisar os sinais
-print(df[['Close', 'ATR', 'signal']])
+
 Contribuição
 Sinta-se à vontade para abrir issues e pull requests para melhorar este projeto.
