@@ -32,6 +32,7 @@ def calculate_atr(df, window):
     true_range = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
     atr = true_range.rolling(window=window, min_periods=1).mean()
     return atr
+
 Aplicar o Método Triple Barrier com ATR:
 
 
@@ -59,6 +60,7 @@ def apply_triple_barrier_atr(df, atr, atr_multiplier, holding_period):
         signals.append(signal)
     
     return signals
+    
 Executar a Análise:
 
 window = 14  # Período do ATR
